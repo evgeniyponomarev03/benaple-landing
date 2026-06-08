@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add bottom padding on mobile to account for fixed bottom navigation */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 80px; /* Adjust based on bottom nav height */
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-left-triple {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scroll-right-triple {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-left-seamless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-left-triple {
+  animation: scroll-left-triple 30s linear infinite;
+}
+
+.animate-scroll-right-triple {
+  animation: scroll-right-triple 30s linear infinite;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 240 5% 96%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 210 65% 34%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 6% 80%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.2rem;
+
+    --success: 196 52% 74%;
+    --warning: 34 89% 85%;
+    --error: 10 100% 86%;
+  }
+
+  /* dark theme variables removed */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply flex min-h-[100vh] flex-col text-foreground;
+    background: transparent;
+  }
+}
+
+html {
+  opacity: initial;
+  overflow-y: scroll;
+}
+
+/* View Transitions API with next-view-transitions library */
+@view-transition {
+  navigation: auto;
+}
+
+/* Enhanced view transition styles inspired by the example */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, clip-path;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 10000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+}
+
+/* Root transition group - prevent flickering and layout shifts */
+::view-transition-group(root) {
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-duration: 600ms;
+}
+
+/* Smooth slide and fade animations */
+@keyframes slideOutAndFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+}
+
+@keyframes slideInAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Prevent layout shifts during transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  mix-blend-mode: normal;
+  background: transparent;
+}
+
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root) {
+    animation-duration: 200ms;
+  }
+
+  ::view-transition-old(root) {
+    animation: fadeOut 200ms ease-out forwards;
+  }
+
+  ::view-transition-new(root) {
+    animation: fadeIn 200ms ease-in forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+/* Sticky header smooth transitions */
+.header-transition {
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+}
+
+/* Force header to have no background during view transitions */
+::view-transition-old(header),
+::view-transition-new(header) {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure header maintains transparency during transitions */
+header[style*='viewTransitionName'] {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Override header background during any transition state */
+::view-transition-group(header) {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Force header transparency during view transitions only */
+header.bg-transparent {
+  background-color: transparent !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Mobile navigation view transition styles */
+::view-transition-old(mobile-nav),
+::view-transition-new(mobile-nav) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Ensure mobile nav maintains its styling during transitions */
+[style*='viewTransitionName: mobile-nav'] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Override mobile nav background during any transition state */
+::view-transition-group(mobile-nav) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.admin-bar {
+  display: none !important;
+}
+
+/* Custom sophisticated shadow for MediaBlock */
+.shadow-sophisticated {
+  box-shadow:
+    0 22.336px 17.869px 0 rgba(0, 0, 0, 0.04),
+    0 12.522px 10.017px 0 rgba(0, 0, 0, 0.04),
+    0 6.65px 5.32px 0 rgba(0, 0, 0, 0.03),
+    0 2.767px 2.214px 0 rgba(0, 0, 0, 0.02);
+}
+
+/* Custom background size for ShapeFeatures responsive behavior */
+.bg-size-custom {
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .bg-size-custom {
+    background-size: 100px;
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "npm.packageManager": "pnpm",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSaveMode": "file",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[javascript][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "piny.project_settings": {
+    "open-pages": ["pinyfakepage.html"],
+    "recent-classes": ["l", "4", "-", "x", "e", "t"],
+    "tw-external-config": {
+      "external_config_url": "tailwind.config.mjs",
+      "external_source_url": "src/app/(frontend)/globals.css"
+    },
+    "source-folders": null,
+    "preview-url": "http://localhost:3000",
+    "ai-project-brief": null,
+    "app-routes": {
+      "routes": [
+        "/",
+        "/(frontend)",
+        "/(frontend)/button-test",
+        "/(frontend)/demo",
+        "/(frontend)/demo-simple",
+        "/(frontend)/demo-test",
+        "/(frontend)/posts",
+        "/(frontend)/search",
+        "/hooks/revalidatePage"
+      ],
+      "current_route": "/"
+    },
+    "urls": {
+      "pinyfakepage.html": {
+        "open-page-views": [
+          {
+            "w": 1280,
+            "h": 732
+          }
+        ]
+      }
+    }
+  }
+}

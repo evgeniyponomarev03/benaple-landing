@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HubSpot Form Custom Styles */
+.hubspot-form-container .hs-form {
+  @apply space-y-6;
+}
+
+.hubspot-form-container .hs-form-field {
+  @apply mb-4;
+}
+
+.hubspot-form-container .hs-form-field label {
+  @apply mb-2 block text-sm font-medium text-gray-700;
+}
+
+.hubspot-form-container .hs-input {
+  @apply w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.hubspot-form-container .hs-button {
+  @apply inline-flex h-10 w-full transform items-center justify-center whitespace-nowrap rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-lg ring-offset-background transition-all duration-200 hover:scale-[1.02] hover:bg-blue-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.hubspot-form-container .hs-error-msgs {
+  @apply mt-1 text-sm text-red-600;
+}
+
+.hubspot-form-container textarea.hs-input {
+  @apply resize-vertical min-h-[100px];
+}
+
+/* Hero form specific styling */
+.hubspot-hero-form .hubspot-form-container {
+  @apply rounded-2xl border border-white/20 bg-white/95 p-6 shadow-2xl backdrop-blur-sm;
+}
+
+.hubspot-hero-form .hubspot-form-container .hs-form {
+  @apply space-y-4;
+}
+
+.hubspot-hero-form
+  .hubspot-form-container
+  .hs-form-field
+  label {
+  @apply font-medium text-gray-800;
+}
+
+.hubspot-hero-form .hubspot-form-container .hs-input {
+  @apply border-gray-200 bg-white/80 focus:bg-white;
+}
+
+/* Make unsubscribe text smaller */
+.hubspot-form-container .legal-consent-container,
+.hubspot-form-container .hs-form-booleancheckbox-display,
+.hubspot-form-container
+  .hs-form-field[data-reactid*='legal_consent']
+  label,
+.hubspot-form-container
+  .hs-form-field[data-reactid*='legal_consent']
+  .hs-form-booleancheckbox-display {
+  @apply text-xs leading-tight text-gray-500;
+}
+
+/* Custom heading styles for rich text content */
+.payload-richtext h1,
+.payload-richtext h2,
+.payload-richtext h3,
+.payload-richtext h4,
+.payload-richtext h5,
+.payload-richtext h6 {
+  font-weight: 400; /* Regular weight by default */
+}
+
+/* Bold headings when explicitly styled */
+.payload-richtext h1 strong,
+.payload-richtext h2 strong,
+.payload-richtext h3 strong,
+.payload-richtext h4 strong,
+.payload-richtext h5 strong,
+.payload-richtext h6 strong,
+.payload-richtext h1 b,
+.payload-richtext h2 b,
+.payload-richtext h3 b,
+.payload-richtext h4 b,
+.payload-richtext h5 b,
+.payload-richtext h6 b {
+  font-weight: 700; /* Bold when explicitly styled */
+}
+
+/* Also handle headings that are directly styled as bold */
+.payload-richtext h1[style*='font-weight: bold'],
+.payload-richtext h2[style*='font-weight: bold'],
+.payload-richtext h3[style*='font-weight: bold'],
+.payload-richtext h4[style*='font-weight: bold'],
+.payload-richtext h5[style*='font-weight: bold'],
+.payload-richtext h6[style*='font-weight: bold'] {
+  font-weight: 700 !important;
+}
+
+/* Also apply to prose classes for consistency */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: 400; /* Regular weight by default */
+}
+
+.prose h1 strong,
+.prose h2 strong,
+.prose h3 strong,
+.prose h4 strong,
+.prose h5 strong,
+.prose h6 strong,
+.prose h1 b,
+.prose h2 b,
+.prose h3 b,
+.prose h4 b,
+.prose h5 b,
+.prose h6 b {
+  font-weight: 700; /* Bold when explicitly styled */
+}
+
+/* Rich text link styles - High specificity to override component styles */
+.payload-richtext a,
+.payload-richtext a:link {
+  color: #1e558e !important; /* brand-primary */
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.payload-richtext a:hover {
+  color: #37b0f0 !important; /* brand-secondary */
+  text-decoration: underline !important; /* Keep underline on hover */
+}
+
+.payload-richtext a:visited {
+  color: #1e558e !important; /* Keep same as primary for consistency */
+  text-decoration: underline !important;
+}
+
+/* Prose link styles for consistency */
+.prose a,
+.prose a:link {
+  color: #1e558e !important; /* brand-primary */
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.prose a:hover {
+  color: #37b0f0 !important; /* brand-secondary */
+  text-decoration: underline !important; /* Keep underline on hover */
+}
+
+.prose a:visited {
+  color: #1e558e !important; /* Keep same as primary for consistency */
+  text-decoration: underline !important;
+}
+
+/* Additional specificity for component contexts */
+div a,
+section a,
+article a {
+  color: #1e558e !important;
+  text-decoration: underline !important;
+}
+
+div a:hover,
+section a:hover,
+article a:hover {
+  color: #37b0f0 !important;
+  text-decoration: underline !important;
+}
+
+/* Specific overrides for InsuranceFeatures and FeatureGrid components */
+.insurance-features a,
+.feature-grid a,
+[class*='InsuranceFeatures'] a,
+[class*='FeatureGrid'] a {
+  color: #1e558e !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.insurance-features a:hover,
+.feature-grid a:hover,
+[class*='InsuranceFeatures'] a:hover,
+[class*='FeatureGrid'] a:hover {
+  color: #37b0f0 !important;
+  text-decoration: underline !important;
+}
+
+/* Ultra-specific overrides to force brand colors */
+.text-muted-foreground a,
+.text-gray-600 a,
+.text-sm a,
+div[class*='text-'] a,
+span[class*='text-'] a {
+  color: #1e558e !important;
+  text-decoration: underline !important;
+}
+
+.text-muted-foreground a:hover,
+.text-gray-600 a:hover,
+.text-sm a:hover,
+div[class*='text-'] a:hover,
+span[class*='text-'] a:hover {
+  color: #37b0f0 !important;
+  text-decoration: underline !important;
+}
+
+/* Force override any Tailwind text color classes */
+[class*='text-gray'] a,
+[class*='text-slate'] a,
+[class*='text-zinc'] a,
+[class*='text-neutral'] a,
+[class*='text-stone'] a {
+  color: #1e558e !important;
+  text-decoration: underline !important;
+}
+
+[class*='text-gray'] a:hover,
+[class*='text-slate'] a:hover,
+[class*='text-zinc'] a:hover,
+[class*='text-neutral'] a:hover,
+[class*='text-stone'] a:hover {
+  color: #37b0f0 !important;
+  text-decoration: underline !important;
+}
+
+/* Targeted override for RichText rendered links */
+.payload-richtext p a,
+.payload-richtext div a,
+.payload-richtext span a {
+  color: #1e558e !important;
+  text-decoration: underline !important;
+  border-bottom: none !important;
+}
+
+.payload-richtext p a:hover,
+.payload-richtext div a:hover,
+.payload-richtext span a:hover {
+  color: #37b0f0 !important;
+  text-decoration: underline !important;
+}
+
+/* Override any inherited text colors */
+.insurance-features .payload-richtext a,
+.feature-grid .payload-richtext a {
+  color: #1e558e !important;
+  text-decoration: underline !important;
+}
+
+.insurance-features .payload-richtext a:hover,
+.feature-grid .payload-richtext a:hover {
+  color: #37b0f0 !important;
+  text-decoration: underline !important;
+}
