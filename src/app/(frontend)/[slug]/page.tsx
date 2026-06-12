@@ -9,7 +9,6 @@ import {
 import { draftMode } from 'next/headers'
 import React, { cache } from 'react'
 import { homeStatic } from '@/endpoints/seed/home-static'
-import { insuranceStatic } from '@/endpoints/seed/insurance-static'
 
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
@@ -18,33 +17,29 @@ import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
 export async function generateStaticParams() {
-  try {
-    const payload = await getPayload({
-      config: configPromise,
+  const payload = await getPayload({
+    config: configPromise,
+  })
+  const pages = await payload.find({
+    collection: 'pages',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: {
+      slug: true,
+    },
+  })
+
+  const params = pages.docs
+    ?.filter((doc) => {
+      return doc.slug !== 'home'
     })
-    const pages = await payload.find({
-      collection: 'pages',
-      draft: false,
-      limit: 1000,
-      overrideAccess: false,
-      pagination: false,
-      select: {
-        slug: true,
-      },
+    .map(({ slug }) => {
+      return { slug }
     })
 
-    const params = pages.docs
-      ?.filter((doc) => {
-        return doc.slug !== 'home'
-      })
-      .map(({ slug }) => {
-        return { slug }
-      })
-
-    return params
-  } catch (error) {
-    return [{ slug: 'insurance' }]
-  }
+  return params
 }
 
 type Args = {
@@ -71,10 +66,6 @@ export default async function Page({
     page = homeStatic
   }
 
-  if (!page && slug === 'insurance') {
-    page = insuranceStatic
-  }
-
   if (!page) {
     return <PayloadRedirects url={url} />
   }
@@ -99,42 +90,34 @@ export async function generateMetadata({
   params: paramsPromise,
 }: Args): Promise<Metadata> {
   const { slug = 'insurance' } = await paramsPromise
-  let page = await queryPageBySlug({
+  const page = await queryPageBySlug({
     slug,
   })
-
-  if (!page && slug === 'insurance') {
-    page = insuranceStatic as any
-  }
 
   return generateMeta({ doc: page })
 }
 
 const queryPageBySlug = cache(
   async ({ slug }: { slug: string }) => {
-    try {
-      const { isEnabled: draft } = await draftMode()
+    const { isEnabled: draft } = await draftMode()
 
-      const payload = await getPayload({
-        config: configPromise,
-      })
+    const payload = await getPayload({
+      config: configPromise,
+    })
 
-      const result = await payload.find({
-        collection: 'pages',
-        draft,
-        limit: 1,
-        pagination: false,
-        overrideAccess: draft,
-        where: {
-          slug: {
-            equals: slug,
-          },
+    const result = await payload.find({
+      collection: 'pages',
+      draft,
+      limit: 1,
+      pagination: false,
+      overrideAccess: draft,
+      where: {
+        slug: {
+          equals: slug,
         },
-      })
+      },
+    })
 
-      return result.docs?.[0] || null
-    } catch (error) {
-      return null
-    }
+    return result.docs?.[0] || null
   },
 )
