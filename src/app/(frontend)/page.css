@@ -392,7 +392,30 @@
           @apply z-10 grid grid-cols-2 items-start gap-4;
 
           .featCards {
-            @apply rounded-2xl border border-[#FFFFFF1A] p-6 transition-all;
+            @apply rounded-2xl p-6 transition-all;
+            position: relative;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              border-radius: inherit;
+              padding: 1px;
+              background: linear-gradient(-45deg,
+                  rgba(255, 255, 255, 0.4),
+                  rgba(255, 255, 255, 0.08) 40%,
+                  rgba(255, 255, 255, 0.03) 60%,
+                  rgba(255, 255, 255, 0.25));
+              -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+              -webkit-mask-composite: xor;
+              mask-composite: exclude;
+              pointer-events: none;
+            }
 
             &:nth-child(2) {
               @apply mt-12;
@@ -435,6 +458,10 @@
 
             &:hover {
               @apply bg-white;
+
+              &::before {
+                opacity: 0;
+              }
 
               .cardHeading {
                 figure {
@@ -480,16 +507,16 @@
     }
 
     .swiper {
-      @apply flex w-full flex-col gap-11;
+      @apply flex w-full flex-col;
 
       .swiper-wrapper {
         .swiper-slide {
           .step {
-            @apply grid gap-44;
+            @apply grid gap-44 items-center;
             grid-template-columns: 0.8fr 1fr;
 
             .stepContent {
-              @apply ml-4;
+              @apply ml-4 flex flex-col items-start;
 
               h3 {
                 @apply text-[32px] font-bold leading-none text-[#172B5F];
@@ -500,6 +527,32 @@
                 @apply mt-8 text-[18px] leading-[130%] text-[#172B5FB2];
                 font-family: 'Inter', sans-serif;
                 letter-spacing: -0.2px;
+              }
+
+              .scrollDownBtn {
+                @apply mt-[80px] inline-flex items-center gap-3 cursor-pointer border-none bg-transparent p-0 transition-transform duration-200;
+                font-family: 'Manrope', sans-serif;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 1.2;
+                color: #172B5F;
+
+                &:hover {
+                  transform: translateY(3px);
+                }
+
+                svg {
+                  display: block;
+                }
+
+                span {
+                  display: inline-block;
+                  vertical-align: middle;
+                }
+
+                @media screen and (max-width: 1023px) {
+                  display: none;
+                }
               }
             }
 
@@ -513,6 +566,7 @@
       }
 
       .stepsControls {
+        margin-top: 50px;
         @apply flex items-center gap-12;
 
         .swiper-pagination {
@@ -1694,8 +1748,14 @@
 
         .swiper-wrapper {
           .swiper-slide {
+            height: auto;
+
             .step {
-              @apply grid-cols-1;
+              @apply grid-cols-1 gap-8;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
 
               .stepContent {
                 @apply ml-0;
@@ -1714,7 +1774,7 @@
   }
 
   .caseStudy {
-    @apply mt-20 p-4;
+    @apply p-4;
 
     .slider {
       @apply mt-6;
@@ -1809,5 +1869,21 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .partners,
+  .benefits,
+  .services,
+  .howItWorks,
+  .caseStudy,
+  .testimonials,
+  .contactSection {
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+  }
+  .contactSection {
+    margin-bottom: 80px !important;
   }
 }

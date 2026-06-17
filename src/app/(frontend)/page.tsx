@@ -648,13 +648,20 @@ export default function Homepage() {
   )
   const [activeCard, setActiveCard] = useState<
     number | null
-  >(null)
+  >(servicesCards[0]?.id || null)
   const [progress, setProgress] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const [expanded, setExpanded] = useState<boolean[]>(
     caseStudies.map(() => false),
   )
+
+  const handleScrollDown = () => {
+    const nextSection = document.querySelector('.caseStudy')
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     ScrollTrigger.refresh()
@@ -1145,16 +1152,22 @@ export default function Homepage() {
               }
               modules={[Mousewheel]}
               slidesPerView={1}
+              spaceBetween={16}
               onSlideChange={(swiper) => {
                 setActiveIndex(swiper.activeIndex)
               }}
               breakpoints={{
-                360: {
+                0: {
                   slidesPerView: 1.1,
-                  spaceBetween: 20,
+                  spaceBetween: 16,
                 },
-                500: {
+                768: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 16,
+                },
+                1024: {
                   slidesPerView: 1,
+                  spaceBetween: 0,
                 },
               }}
             >
@@ -1164,6 +1177,42 @@ export default function Homepage() {
                     <div className="stepContent">
                       <h3>{step.title}</h3>
                       <p>{step.description}</p>
+                      <button
+                        type="button"
+                        onClick={handleScrollDown}
+                        className="scrollDownBtn"
+                      >
+                        <svg
+                          width="17"
+                          height="29"
+                          viewBox="0 0 17 29"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clipPath="url(#clip0_852_13103)">
+                            <path
+                              d="M5.33268 16.1898L8.1633 19L10.9736 16.1898M8.1633 19V9.8667"
+                              stroke="#45CBEF"
+                              strokeWidth="0.810648"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </g>
+                          <path
+                            d="M16.1667 8.33301V20.667C16.1665 24.993 12.6596 28.4998 8.33366 28.5C4.00754 28.5 0.499851 24.9931 0.499676 20.667V8.33301C0.49985 4.00693 4.00754 0.5 8.33366 0.5C12.5247 0.500171 15.9473 3.79166 16.1569 7.93066L16.1667 8.33301Z"
+                            stroke="#45CBEF"
+                          />
+                          <defs>
+                            <clipPath id="clip0_852_13103">
+                              <path
+                                d="M8.33333 0C12.9357 0 16.6667 3.73096 16.6667 8.33333V20.6667C16.6667 25.269 12.9357 29 8.33333 29C3.73096 29 0 25.269 0 20.6667V8.33333C0 3.73096 3.73096 0 8.33333 0Z"
+                                fill="white"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                        <span>scroll down</span>
+                      </button>
                     </div>
                     <figure>
                       <img

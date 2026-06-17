@@ -4,17 +4,68 @@ import { TransitionLink } from '@/components/TransitionLink'
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { useTransitionRouter } from 'next-view-transitions'
+import { ChevronDown } from 'lucide-react'
 
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { SegmentedToggle } from '@/components/SegmentedToggle'
-import { HeaderNav } from './Nav'
 import { CMSLink } from '@/components/Link'
 import { usePageTransition } from '@/providers/PageTransition'
+import { MobileMenu } from '@/components/MobileMenu'
 
 interface HeaderClientProps {
   data: Header
+}
+
+const InsuranceSelect: React.FC<{ data: Header }> = ({ data }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  
+  // Extract all options from categories
+  const options = data?.insuranceMegaMenu?.categories?.flatMap(cat => 
+    cat.items?.map(item => ({
+      label: item.title,
+      url: item.link?.url || '/insurance'
+    })) || []
+  ) || []
+  
+  const displayOptions = options.length > 0 ? options : [
+    { label: 'Employee Benefits', url: '/insurance' },
+    { label: 'Corporate Risk', url: '/insurance' },
+    { label: 'Specialised Coverage', url: '/insurance' },
+    { label: 'Operational Support', url: '/insurance' }
+  ]
+
+  return (
+    <div className="relative">
+      <button 
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-700 bg-transparent hover:bg-slate-50 rounded-xl transition-all duration-200"
+      >
+        <span>Insurance solutions</span>
+        <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      
+      {isOpen && (
+        <>
+          <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+          <div className="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-md border border-slate-100 shadow-xl rounded-2xl p-2 z-50 flex flex-col gap-1 max-h-[300px] overflow-y-auto">
+            {displayOptions.map((opt, i) => (
+              <TransitionLink
+                key={i}
+                href={opt.url}
+                onClick={() => setIsOpen(false)}
+                className="w-full text-left px-4 py-2.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-xl transition-all duration-200 font-medium block"
+              >
+                {opt.label}
+              </TransitionLink>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({
@@ -29,8 +80,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({
   const { navigateWithTransition } = usePageTransition()
 
   // Sticky header scroll behavior
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isTransitioning, setIsTransitioning] =
     useState(false)
@@ -67,28 +116,13 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({
   useEffect(() => {
     const controlHeader = () => {
       const currentScrollY = window.scrollY
-
-      // Update scrolled state
       setIsScrolled(currentScrollY > 0)
-
-      if (
-        currentScrollY > lastScrollY &&
-        currentScrollY > 100
-      ) {
-        // Scrolling down and past 100px - hide header
-        setIsVisible(false)
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header
-        setIsVisible(true)
-      }
-
-      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener('scroll', controlHeader)
     return () =>
       window.removeEventListener('scroll', controlHeader)
-  }, [lastScrollY])
+  }, [])
 
   // Custom transition function for smooth page transitions
   const slideInOut = () => {
@@ -136,40 +170,17 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({
     }, 2000)
   }
 
-  const handleProductTabChange = async (
-    key: 'hr' | 'insurance',
-  ) => {
-    // Don't navigate if clicking the same tab
-    if (key === productTab) return
-
-    setProductTab(key)
-    const target =
-      key === 'hr' ? '/hr-platform-new' : '/insurance'
-
-    // Set transitioning state immediately to prevent flash
-    setIsTransitioning(true)
-
-    // Use transitionRouter for smooth transitions
-    transitionRouter.push(target, {
-      onTransitionReady: slideInOut,
-    })
-  }
+  const contactLink = data?.navItems?.find(
+    ({ link }) => link?.label?.toLowerCase().includes('contact')
+  )?.link
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-20 ${
-        isTransitioning
-          ? 'bg-transparent'
-          : isScrolled
-            ? 'border-b border-border bg-white shadow-sm'
-            : 'bg-white/95 backdrop-blur-sm'
-      } ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      className="fixed left-0 right-0 top-0 z-40"
       style={{
         viewTransitionName: 'header',
-        transition:
-          'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out',
+        background: 'transparent',
+        borderBottom: '1px solid transparent',
       }}
     >
       <div className="w-full px-4 md:container">
@@ -183,14 +194,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({
             <SegmentedToggle
               items={[
                 { key: 'insurance', label: 'Insurance' },
-                {
-                  key: 'hr',
-                  label: (
-                    <span className="inline-flex items-center gap-2">
-                      <span>HR Platform</span>
-                    </span>
-                  ),
-                },
+                { key: 'hr', label: 'HR Platform' },
               ]}
               value={productTab}
               onValueChange={(k) => {
@@ -212,25 +216,41 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({
                   onTransitionReady: slideInOut,
                 })
               }}
-              className="shadow-md"
+              className=""
             />
           </div>
           <div className="flex items-center gap-4 justify-self-end">
-            {/* Navigation - hidden mega menu on mobile, visible on desktop */}
-            <div className="hidden md:block">
-              <HeaderNav data={data} />
+            <div className="hidden md:flex items-center gap-4">
+              <InsuranceSelect data={data} />
+              
+              <TransitionLink
+                href="/login"
+                className="text-sm font-medium text-slate-600 hover:text-slate-950 transition-colors duration-200"
+              >
+                Login
+              </TransitionLink>
+              
+              {contactLink ? (
+                <TransitionLink 
+                  href={contactLink.url || '/contact'}
+                  className="inline-flex items-center justify-center py-4 px-6 gap-[10px] rounded-[40px] border border-[#172B5F4D] text-[#172B5F] bg-transparent font-inter font-medium text-sm leading-[1.2] tracking-[-0.01em] align-middle transition-all duration-200 hover:bg-[#172B5F]/5 text-center shadow-sm hover:shadow"
+                >
+                  {contactLink.label || 'Contact us'}
+                </TransitionLink>
+              ) : (
+                <TransitionLink
+                  href="/contact"
+                  className="inline-flex items-center justify-center py-4 px-6 gap-[10px] rounded-[40px] border border-[#172B5F4D] text-[#172B5F] bg-transparent font-inter font-medium text-sm leading-[1.2] tracking-[-0.01em] align-middle transition-all duration-200 hover:bg-[#172B5F]/5 text-center shadow-sm hover:shadow"
+                >
+                  Contact us
+                </TransitionLink>
+              )}
             </div>
-            {/* Contact button - always visible, positioned right on mobile */}
-            {data?.navItems?.map(({ link }, i) => {
-              if (
-                link?.label
-                  ?.toLowerCase()
-                  .includes('contact')
-              ) {
-                return <CMSLink key={i} {...link} />
-              }
-              return null
-            })}
+
+            {/* Mobile Menu */}
+            <div className="md:hidden">
+              <MobileMenu data={data} />
+            </div>
           </div>
         </div>
       </div>

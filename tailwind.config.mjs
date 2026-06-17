@@ -105,6 +105,11 @@ const config = {
           'system-ui',
           'sans-serif',
         ],
+        inter: [
+          'var(--font-inter)',
+          'system-ui',
+          'sans-serif',
+        ],
         mono: [
           'ui-monospace',
           'SFMono-Regular',

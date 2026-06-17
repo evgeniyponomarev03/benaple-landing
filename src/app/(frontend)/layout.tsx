@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import { cn } from '@/utilities/ui'
-import { Poppins } from 'next/font/google'
+import { Poppins, Inter } from 'next/font/google'
 import React from 'react'
 import { ViewTransitions } from 'next-view-transitions'
 
@@ -29,6 +29,14 @@ const poppins = Poppins({
   display: 'swap',
 })
 
+// Configure Inter font
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
 export default async function RootLayout({
   children,
 }: {
@@ -38,7 +46,7 @@ export default async function RootLayout({
 
   return (
     <html
-      className={cn(poppins.variable)}
+      className={cn(poppins.variable, inter.variable)}
       data-theme="light"
       lang="en"
       suppressHydrationWarning

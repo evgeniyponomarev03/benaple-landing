@@ -133,12 +133,19 @@ export default function DatePickerInput({
                 },
 
                 '& .Mui-selected': {
+                  backgroundColor: '#40A8C5 !important',
                   color: '#ffffff !important',
-                },
-                '& .css-1egp22d-MuiButtonBase-root-MuiPickersDay-root.Mui-selected':
-                  {
-                    color: '#ffffff !important',
+                  '&:hover': {
+                    backgroundColor: '#40A8C5 !important',
                   },
+                },
+                '& .MuiPickersDay-root.Mui-selected': {
+                  backgroundColor: '#40A8C5 !important',
+                  color: '#ffffff !important',
+                  '&:hover': {
+                    backgroundColor: '#40A8C5 !important',
+                  },
+                },
                 '& .css-1szvqlk-MuiButtonBase-root-MuiIconButton-root':
                   {
                     marginRight: 0,
