@@ -583,9 +583,11 @@
           button {
             @apply h-[56px] w-[56px] rounded-[50%] border border-[#172B5F];
             @apply flex items-center justify-center;
+            width: 40px;
+            height: 40px;
 
             svg {
-              @apply h-[20px] w-[10px];
+              @apply h-[15px] w-[7px];
             }
           }
           button:disabled {
@@ -922,11 +924,11 @@
           @apply flex items-center gap-2;
 
           button {
-            @apply h-[56px] w-[56px] rounded-[50%] border border-[#172B5F];
+            @apply h-[40px] w-[40px] rounded-[50%] border border-[#172B5F];
             @apply flex items-center justify-center;
 
             svg {
-              @apply h-[20px] w-[10px];
+              @apply h-[15px] w-[7px];
             }
           }
           button:disabled {
