@@ -86,6 +86,7 @@ export default function DatePickerInput({
             desktopPaper: {
               className: 'custom-datepicker__paper',
               sx: {
+                backgroundColor: '#ffffff !important',
                 width: 280,
                 height: 280,
                 '& .MuiDayCalendar-header': {
@@ -116,11 +117,11 @@ export default function DatePickerInput({
                   margin: 0,
                 },
 
-                '& .css-5wchs2-MuiDateCalendar-root': {
+                '& .MuiDateCalendar-root': {
                   width: 280,
                 },
 
-                '& .css-1chuxo2-MuiPickersCalendarHeader-label':
+                '& .MuiPickersCalendarHeader-label':
                   {
                     color: '#172B5FB2',
                     fontFamily: 'Manrope',
@@ -146,7 +147,7 @@ export default function DatePickerInput({
                     backgroundColor: '#40A8C5 !important',
                   },
                 },
-                '& .css-1szvqlk-MuiButtonBase-root-MuiIconButton-root':
+                '& .MuiPickersCalendarHeader-root .MuiIconButton-root':
                   {
                     marginRight: 0,
                     marginLeft: 0,
