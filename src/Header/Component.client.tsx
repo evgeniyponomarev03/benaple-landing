@@ -10,7 +10,6 @@ import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
 import { SegmentedToggle } from '@/components/SegmentedToggle'
-import { CMSLink } from '@/components/Link'
 import { usePageTransition } from '@/providers/PageTransition'
 import { MobileMenu } from '@/components/MobileMenu'
 

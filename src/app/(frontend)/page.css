@@ -623,7 +623,7 @@
   }
 
   .slider {
-    @apply mt-20 flex;
+    @apply mt-20 flex w-full;
 
     .swiper {
       @apply flex w-full flex-col items-center justify-center overflow-visible;
@@ -631,7 +631,7 @@
       &:before,
       &:after {
         content: '';
-        @apply absolute left-0 top-0 z-10 h-[74%] w-[250px] bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF00];
+        @apply absolute left-0 top-0 z-10 h-[85%] w-[250px] bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF00];
       }
 
       &:after {
@@ -642,10 +642,10 @@
         @apply w-full items-center;
 
         .swiper-slide {
-          @apply max-w-[1072px];
+          /* removed max-w limit to prevent Swiper positioning bugs */
 
           .caseStudySlide {
-            @apply grid;
+            @apply grid w-full max-w-[1072px] mx-auto;
             grid-template-columns: 1fr 0.5fr;
 
             .caseStudyLeft {
@@ -787,17 +787,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .caseStudy {
-    .slider {
-      .swiper {
-        .swiper-wrapper {
-          .swiper-slide {
-            @apply !w-full;
-          }
-        }
-      }
-    }
-  }
+  /* removed caseStudy swiper-slide !w-full override to fix centering on large screens */
 }
 
 .testimonials {
@@ -975,16 +965,16 @@
           }
 
           .custom-datepicker__input {
-            @apply border-none outline-none;
-            .css-1a9eo22-MuiPickersInputBase-root-MuiPickersOutlinedInput-root {
-              @apply rounded-[8px] border border-[#1118271A] bg-white outline-none;
+            @apply w-full border-none outline-none;
+            .MuiPickersOutlinedInput-root {
+              @apply w-full rounded-[8px] border border-[#1118271A] bg-white outline-none;
 
-              .css-1fb7els-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer {
+              .MuiPickersInputBase-sectionsContainer {
                 @apply order-2 ml-4 py-[10.5px] text-[15px] text-[#172B5FB2];
                 font-family: 'Inter', sans-serif;
               }
 
-              .css-r1perq-MuiInputAdornment-root {
+              .MuiInputAdornment-root {
                 @apply ml-0;
               }
 
@@ -1441,15 +1431,22 @@
   .caseStudy {
     .slider {
       .swiper {
+        height: auto !important;
+
         &::before,
         &::after {
           @apply h-[87%] w-[200px];
         }
 
         .swiper-wrapper {
+          height: auto !important;
+          align-items: stretch !important;
+
           .swiper-slide {
+            @apply flex h-full;
+
             .caseStudySlide {
-              @apply grid-cols-1;
+              @apply flex flex-col justify-between h-full;
             }
           }
         }

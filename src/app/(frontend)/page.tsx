@@ -802,6 +802,9 @@ export default function Homepage() {
     setExpanded((prev) =>
       prev.map((val, i) => (i === index ? !val : val)),
     )
+    setTimeout(() => {
+      caseStudiesSwiperRef.current?.updateAutoHeight()
+    }, 100)
   }
 
   function handleCountrySelect(countryCode: string) {
@@ -1304,9 +1307,9 @@ export default function Homepage() {
               onSwiper={(swiper) =>
                 (caseStudiesSwiperRef.current = swiper)
               }
-              onSlideChange={(swiper) =>
+              onSlideChange={(swiper) => {
                 setActiveIndex(swiper.activeIndex)
-              }
+              }}
               breakpoints={{
                 0: {
                   slidesPerView: 1.1,
@@ -1369,7 +1372,7 @@ export default function Homepage() {
                           onClick={() => toggleExpanded(i)}
                         >
                           {expanded[i]
-                            ? 'Show less'
+                            ? 'Read less'
                             : 'Read more'}
 
                           <svg
