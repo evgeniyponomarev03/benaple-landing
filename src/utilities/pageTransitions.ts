@@ -179,7 +179,7 @@ export async function performPageTransition(
   // Use View Transitions API if supported, otherwise fallback
   if (isViewTransitionSupported()) {
     return new Promise<void>((resolve) => {
-      const transition = document.startViewTransition!(
+      document.startViewTransition!(
         () => {
           navigationCallback()
           resolve()

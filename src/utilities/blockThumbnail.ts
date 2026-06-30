@@ -31,8 +31,8 @@ if (typeof window === 'undefined') {
         .readdirSync(publicBlocksDir, {
           withFileTypes: true,
         })
-        .filter((dirent: any) => dirent.isDirectory())
-        .map((dirent: any) => dirent.name)
+        .filter((dirent: fs.Dirent) => dirent.isDirectory())
+        .map((dirent: fs.Dirent) => dirent.name)
 
       blockFolders.forEach((folder: string) => {
         const thumbPath = path.join(
