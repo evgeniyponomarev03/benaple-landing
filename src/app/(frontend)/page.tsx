@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import {
   CardOneIcon,
   CardTwoIcon,
@@ -1155,13 +1156,13 @@ export default function Homepage() {
               <p className="wellbeingText">
                 Beyond insurance, we help build healthier businesses with <strong>complimentary wellbeing programmes</strong> — from health screenings to mental health support — improving productivity and reducing costs.
               </p>
-              <a href="/why-choose-beneple" className="learnMoreBtn">
+              <Link href="/why-choose-beneple" className="learnMoreBtn">
                 Learn More
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 12H19" stroke="currentColor" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -1459,13 +1460,13 @@ export default function Homepage() {
             </div>
           </div>
           <div className="wellbeingCTA">
-            <a href="/contact" className="btn btnPrimary">
+            <Link href="/contact" className="btn btnPrimary">
               Get Started Today
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19" stroke="white" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M12 5L19 12L12 19" stroke="white" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
+            </Link>
           </div>
         </section>
         <section className="caseStudy">
