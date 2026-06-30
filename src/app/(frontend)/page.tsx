@@ -462,7 +462,7 @@ const steps = [
     id: 1,
     title: 'Tell Us About Your Company',
     description:
-      'Lorem ipsum dolor sit amet consectetur. Integer tristique nec sit varius bibendum. Vehicula habitant lobortis feugiat sit nunc et eget cras proin. Est ultricies in adipiscing in iaculis. Sed adipiscing.',
+      'Share your team size, budget, and specific coverage needs. Our experts will analyse your requirements to find the perfect corporate insurance or employee benefits package.',
     image: '/steps-media/office.png',
   },
   {
