@@ -1,0 +1,8 @@
+<svg overflow="visible" style="display: block;" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="contents">
+<path id="middle" fill-rule="evenodd" clip-rule="evenodd" d="M0 0H16V12H0V0Z" fill="var(--fill-0, #F7FCFF)"/>
+<path id="top" fill-rule="evenodd" clip-rule="evenodd" d="M0 0V4H16V0H0Z" fill="var(--fill-0, #5EAA22)"/>
+<path id="bottom" fill-rule="evenodd" clip-rule="evenodd" d="M0 8V12H16V8H0Z" fill="var(--fill-0, #272727)"/>
+<rect id="left" width="5" height="12" fill="var(--fill-0, #E31D1C)"/>
+</g>
+</svg>

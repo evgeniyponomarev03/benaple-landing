@@ -26,6 +26,16 @@ import { InteractiveFeatures } from '@/blocks/InteractiveFeatures/config'
 import { Spacer } from '@/blocks/Spacer/config'
 import { InsuranceFeatures } from '@/blocks/InsuranceFeatures/config'
 import { LandingPageContent } from '@/blocks/LandingPageContent/config'
+
+// Insurance Page Blocks
+import { InsurancePartnersTicker } from '@/blocks/InsurancePartnersTicker/config'
+import { InsuranceBenefits } from '@/blocks/InsuranceBenefits/config'
+import { InsuranceSolutionsTabs } from '@/blocks/InsuranceSolutionsTabs/config'
+import { InsuranceSteps } from '@/blocks/InsuranceSteps/config'
+import { InsuranceCaseStudy } from '@/blocks/InsuranceCaseStudy/config'
+import { InsuranceGoogleReviews } from '@/blocks/InsuranceGoogleReviews/config'
+import { InsuranceContactForm } from '@/blocks/InsuranceContactForm/config'
+import { InsuranceFooter } from '@/blocks/InsuranceFooter/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -121,6 +131,15 @@ export const Pages: CollectionConfig<'pages'> = {
                 Spacer,
                 InsuranceFeatures,
                 LandingPageContent,
+                // Insurance Page Blocks
+                InsurancePartnersTicker,
+                InsuranceBenefits,
+                InsuranceSolutionsTabs,
+                InsuranceSteps,
+                InsuranceCaseStudy,
+                InsuranceGoogleReviews,
+                InsuranceContactForm,
+                InsuranceFooter,
               ],
               required: true,
               admin: {

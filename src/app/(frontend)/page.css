@@ -99,7 +99,7 @@
 
 .marquee-left {
   @apply flex w-max items-center gap-[25px];
-  animation: marquee-left 10s linear infinite;
+  animation: marquee-left 20s linear infinite;
 
   .marquee-slide {
     @apply w-[160px] shrink-0;
@@ -112,7 +112,7 @@
 
 .marquee-right {
   @apply flex w-full items-center gap-[25px];
-  animation: marquee-right 10s linear infinite;
+  animation: marquee-right 20s linear infinite;
 
   .marquee-slide {
     @apply w-[160px] shrink-0;
@@ -1884,5 +1884,183 @@
   }
   .contactSection {
     margin-bottom: 80px !important;
+  }
+}
+
+/* Why Choose Beneple Section Styles */
+.benefitsTop {
+  @apply grid items-center gap-12 py-16 px-6 lg:px-14;
+  grid-template-columns: 1fr;
+  
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1.1fr;
+  }
+
+  .benefitsTopImg {
+    @apply w-full h-auto rounded-3xl object-cover shadow-lg;
+    max-height: 500px;
+  }
+
+  .benefitsTopRight {
+    @apply flex flex-col gap-6;
+
+    .headingDefault {
+      @apply text-[40px] md:text-[56px] leading-[115%] font-bold text-[#172B5F];
+      font-family: 'Manrope', sans-serif;
+      
+      span {
+        @apply text-[#40A8C5];
+      }
+    }
+
+    .introText {
+      @apply text-[16px] md:text-[18px] leading-[150%] text-[#172B5FB2];
+      font-family: 'Inter', sans-serif;
+    }
+
+    .bullets {
+      @apply flex flex-col gap-3;
+      
+      h4 {
+        @apply text-[18px] font-bold text-[#172B5F];
+        font-family: 'Manrope', sans-serif;
+      }
+
+      ul {
+        @apply flex flex-col gap-2 pl-4 list-disc text-[#172B5FB2];
+        font-family: 'Inter', sans-serif;
+        
+        strong {
+          @apply text-[#172B5F];
+        }
+      }
+    }
+
+    .wellbeingText {
+      @apply text-[16px] leading-[150%] text-[#172B5FB2] border-l-4 border-[#40A8C5] pl-4 italic;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .learnMoreBtn {
+      @apply mt-4 w-fit bg-[#172B5F] hover:bg-[#111827] text-white px-8 py-3 rounded-full font-semibold flex items-center gap-3 transition-colors duration-200;
+      font-family: 'Manrope', sans-serif;
+      
+      svg {
+        @apply transition-transform duration-200;
+      }
+      
+      &:hover svg {
+        @apply translate-x-1;
+      }
+    }
+  }
+}
+
+.benefitsBottom {
+  @apply grid items-center gap-12 py-16 px-6 lg:px-14 mt-12;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .benefitsBottomImg {
+    @apply w-full h-auto rounded-3xl object-cover shadow-lg;
+    max-height: 550px;
+  }
+
+  .benefitsBottomRight {
+    .cards {
+      @apply mt-0 grid gap-6;
+      grid-template-columns: 1fr !important;
+      
+      @media screen and (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .card {
+        @apply w-full h-auto min-h-[380px] pb-12 pl-6 pr-6 pt-6 rounded-2xl bg-gradient-to-b from-[#172B5F] to-[#111827] flex flex-col justify-between;
+        
+        .icon {
+          @apply mb-6;
+        }
+        
+        .cardContent {
+          @apply flex-grow flex flex-col gap-3;
+          
+          h3 {
+            @apply text-[22px] font-bold text-white;
+            font-family: 'Manrope', sans-serif;
+          }
+          
+          p {
+            @apply text-[14px] leading-[140%] text-[#ffffff80];
+            font-family: 'Inter', sans-serif;
+            
+            span {
+              @apply font-semibold text-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Complimentary Wellbeing Section Styles */
+.wellbeingSection {
+  @apply py-20 px-6 lg:px-14 flex flex-col gap-12;
+
+  .wellbeingHeader {
+    @apply flex flex-col gap-4 items-center text-center;
+    
+    .headingDefault {
+      @apply text-[36px] md:text-[48px] leading-[115%] font-bold text-[#172B5F] max-w-[800px];
+      font-family: 'Manrope', sans-serif;
+      
+      span {
+        @apply text-[#40A8C5];
+      }
+    }
+  }
+
+  .wellbeingGrid {
+    @apply grid gap-8 grid-cols-1 md:grid-cols-3;
+    
+    .wellbeingCol {
+      @apply bg-[#F3F4F6] p-8 rounded-3xl flex flex-col gap-4 border border-[#E5E7EB] hover:shadow-md transition-shadow duration-300;
+      
+      h3 {
+        @apply text-[20px] font-bold text-[#172B5F];
+        font-family: 'Manrope', sans-serif;
+        line-height: 1.3;
+      }
+      
+      p {
+        @apply text-[15px] leading-[150%] text-[#172B5FB2];
+        font-family: 'Inter', sans-serif;
+      }
+    }
+  }
+
+  .wellbeingCTA {
+    @apply flex justify-center mt-6;
+    
+    .btnPrimary {
+      @apply bg-[#172B5F] hover:bg-[#111827] text-white px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-colors duration-200 shadow-md;
+      font-family: 'Manrope', sans-serif;
+      
+      svg {
+        @apply h-[24px] w-[24px] rounded-full bg-[#45CBEF] p-1 flex items-center justify-center transition-transform duration-200;
+        
+        path {
+          stroke: #172B5F !important;
+        }
+      }
+      
+      &:hover svg {
+        @apply translate-x-1;
+      }
+    }
   }
 }

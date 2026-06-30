@@ -1,0 +1,17 @@
+<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip_uae)">
+    <!-- Red vertical band on left -->
+    <path d="M0 0H4V12H0V0Z" fill="#FF0000"/>
+    <!-- Green horizontal band top right -->
+    <path d="M4 0H16V4H4V0Z" fill="#00732F"/>
+    <!-- White horizontal band middle right -->
+    <path d="M4 4H16V8H4V4Z" fill="#FFFFFF"/>
+    <!-- Black horizontal band bottom right -->
+    <path d="M4 8H16V12H4V8Z" fill="#000000"/>
+  </g>
+  <defs>
+    <clipPath id="clip_uae">
+      <rect width="16" height="12" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>

@@ -35,7 +35,7 @@ const staticCategories = [
       },
       {
         title: 'Medical Insurance',
-        description: "secure your employees' families in unexpected events.",
+        description: "comprehensive health coverage to protect your team's physical wellbeing.",
         link: { url: '/insurance' },
       },
     ],

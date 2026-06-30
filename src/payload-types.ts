@@ -153,7 +153,15 @@ export interface Page {
   hero: {
     primaryText?: string | null;
     secondaryText?: string | null;
-    type: 'none' | 'benepleHome' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'tailoredHero' | 'benepleWithForm';
+    type:
+      | 'none'
+      | 'benepleHome'
+      | 'highImpact'
+      | 'mediumImpact'
+      | 'lowImpact'
+      | 'tailoredHero'
+      | 'benepleWithForm'
+      | 'insuranceHero';
     richText?: {
       root: {
         type: string;
@@ -230,6 +238,14 @@ export interface Page {
     | SpacerBlock
     | InsuranceFeaturesBlock
     | LandingPageContentBlock
+    | InsurancePartnersTickerBlock
+    | InsuranceBenefitsBlock
+    | InsuranceSolutionsTabsBlock
+    | InsuranceStepsBlock
+    | InsuranceCaseStudyBlock
+    | InsuranceGoogleReviewsBlock
+    | InsuranceContactFormBlock
+    | InsuranceFooterBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1691,6 +1707,209 @@ export interface LandingPageContentBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsurancePartnersTickerBlock".
+ */
+export interface InsurancePartnersTickerBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  /**
+   * Words to highlight in accent color, separated by commas
+   */
+  highlightedWords?: string | null;
+  row1Logos?:
+    | {
+        image: string | Media;
+        alt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  row2Logos?:
+    | {
+        image: string | Media;
+        alt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insurancePartnersTicker';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceBenefitsBlock".
+ */
+export interface InsuranceBenefitsBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  highlightedWords?: string | null;
+  largeNumber?: string | null;
+  benefits?:
+    | {
+        title: string;
+        description: string;
+        /**
+         * Paste SVG markup for the icon
+         */
+        iconSvg?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceBenefits';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceSolutionsTabsBlock".
+ */
+export interface InsuranceSolutionsTabsBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  highlightedWords?: string | null;
+  tabs?:
+    | {
+        tabLabel: string;
+        categoryTitle?: string | null;
+        categoryDescription?: string | null;
+        categoryIconSvg?: string | null;
+        solutions?:
+          | {
+              title: string;
+              description?: string | null;
+              linkUrl?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceSolutionsTabs';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceStepsBlock".
+ */
+export interface InsuranceStepsBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  highlightedWords?: string | null;
+  steps?:
+    | {
+        stepNumber?: string | null;
+        title: string;
+        description?: string | null;
+        image?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceSteps';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceCaseStudyBlock".
+ */
+export interface InsuranceCaseStudyBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  highlightedWords?: string | null;
+  slides?:
+    | {
+        industry?: string | null;
+        companyLogo?: (string | null) | Media;
+        quote?: string | null;
+        reviewText?: string | null;
+        authorName?: string | null;
+        authorRole?: string | null;
+        metricText?: string | null;
+        metricIconSvg?: string | null;
+        chartSvg?: string | null;
+        /**
+         * Path to logo shown in carousel dots
+         */
+        navLogoSrc?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceCaseStudy';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceGoogleReviewsBlock".
+ */
+export interface InsuranceGoogleReviewsBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  highlightedWords?: string | null;
+  googleRating?: string | null;
+  reviewCount?: string | null;
+  writeReviewUrl?: string | null;
+  reviews?:
+    | {
+        initials: string;
+        name: string;
+        stars?: number | null;
+        date?: string | null;
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceGoogleReviews';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceContactFormBlock".
+ */
+export interface InsuranceContactFormBlock {
+  pillText?: string | null;
+  headline?: string | null;
+  subtitle?: string | null;
+  hubspotPortalId?: string | null;
+  hubspotFormId?: string | null;
+  insuranceTypes?:
+    | {
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceContactForm';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceFooterBlock".
+ */
+export interface InsuranceFooterBlock {
+  phone?: string | null;
+  email?: string | null;
+  address?: string | null;
+  categories?:
+    | {
+        title: string;
+        links?:
+          | {
+              label: string;
+              url?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insuranceFooter';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "submissions".
  */
 export interface Submission {
@@ -2044,6 +2263,14 @@ export interface PagesSelect<T extends boolean = true> {
         spacer?: T | SpacerBlockSelect<T>;
         insuranceFeaturesBlock?: T | InsuranceFeaturesBlockSelect<T>;
         landingPageContent?: T | LandingPageContentBlockSelect<T>;
+        insurancePartnersTicker?: T | InsurancePartnersTickerBlockSelect<T>;
+        insuranceBenefits?: T | InsuranceBenefitsBlockSelect<T>;
+        insuranceSolutionsTabs?: T | InsuranceSolutionsTabsBlockSelect<T>;
+        insuranceSteps?: T | InsuranceStepsBlockSelect<T>;
+        insuranceCaseStudy?: T | InsuranceCaseStudyBlockSelect<T>;
+        insuranceGoogleReviews?: T | InsuranceGoogleReviewsBlockSelect<T>;
+        insuranceContactForm?: T | InsuranceContactFormBlockSelect<T>;
+        insuranceFooter?: T | InsuranceFooterBlockSelect<T>;
       };
   meta?:
     | T
@@ -2619,6 +2846,192 @@ export interface LandingPageContentBlockSelect<T extends boolean = true> {
   ctaUrl?: T;
   backgroundColor?: T;
   imagePosition?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsurancePartnersTickerBlock_select".
+ */
+export interface InsurancePartnersTickerBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  highlightedWords?: T;
+  row1Logos?:
+    | T
+    | {
+        image?: T;
+        alt?: T;
+        id?: T;
+      };
+  row2Logos?:
+    | T
+    | {
+        image?: T;
+        alt?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceBenefitsBlock_select".
+ */
+export interface InsuranceBenefitsBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  highlightedWords?: T;
+  largeNumber?: T;
+  benefits?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        iconSvg?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceSolutionsTabsBlock_select".
+ */
+export interface InsuranceSolutionsTabsBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  highlightedWords?: T;
+  tabs?:
+    | T
+    | {
+        tabLabel?: T;
+        categoryTitle?: T;
+        categoryDescription?: T;
+        categoryIconSvg?: T;
+        solutions?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              linkUrl?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceStepsBlock_select".
+ */
+export interface InsuranceStepsBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  highlightedWords?: T;
+  steps?:
+    | T
+    | {
+        stepNumber?: T;
+        title?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceCaseStudyBlock_select".
+ */
+export interface InsuranceCaseStudyBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  highlightedWords?: T;
+  slides?:
+    | T
+    | {
+        industry?: T;
+        companyLogo?: T;
+        quote?: T;
+        reviewText?: T;
+        authorName?: T;
+        authorRole?: T;
+        metricText?: T;
+        metricIconSvg?: T;
+        chartSvg?: T;
+        navLogoSrc?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceGoogleReviewsBlock_select".
+ */
+export interface InsuranceGoogleReviewsBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  highlightedWords?: T;
+  googleRating?: T;
+  reviewCount?: T;
+  writeReviewUrl?: T;
+  reviews?:
+    | T
+    | {
+        initials?: T;
+        name?: T;
+        stars?: T;
+        date?: T;
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceContactFormBlock_select".
+ */
+export interface InsuranceContactFormBlockSelect<T extends boolean = true> {
+  pillText?: T;
+  headline?: T;
+  subtitle?: T;
+  hubspotPortalId?: T;
+  hubspotFormId?: T;
+  insuranceTypes?:
+    | T
+    | {
+        label?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsuranceFooterBlock_select".
+ */
+export interface InsuranceFooterBlockSelect<T extends boolean = true> {
+  phone?: T;
+  email?: T;
+  address?: T;
+  categories?:
+    | T
+    | {
+        title?: T;
+        links?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

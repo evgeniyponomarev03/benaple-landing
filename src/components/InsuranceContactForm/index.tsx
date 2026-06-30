@@ -10,27 +10,32 @@ import TermsAgreement from '@/components/TermsBlock'
 const countriesDropdown = [
   {
     id: '1',
-    countryCode: '(+123)',
-    flag: '/flags/usa.svg',
+    countryCode: '(+971)',
+    flag: '/flags/uae.svg',
   },
   {
     id: '2',
-    countryCode: '(+123)',
-    flag: '/flags/uk.svg',
+    countryCode: '(+1)',
+    flag: '/flags/usa.svg',
   },
   {
     id: '3',
-    countryCode: '(+123)',
-    flag: '/flags/romania.svg',
+    countryCode: '(+44)',
+    flag: '/flags/uk.svg',
   },
   {
     id: '4',
-    countryCode: '(+123)',
-    flag: '/flags/germany.svg',
+    countryCode: '(+40)',
+    flag: '/flags/romania.svg',
   },
   {
     id: '5',
-    countryCode: '(+123)',
+    countryCode: '(+49)',
+    flag: '/flags/germany.svg',
+  },
+  {
+    id: '6',
+    countryCode: '(+33)',
     flag: '/flags/france.svg',
   },
 ]
@@ -84,6 +89,14 @@ export default function InsuranceContactForm() {
 
     const form = e.currentTarget // store reference here
     const formData = new FormData(form)
+    
+    // Prepend country code to phone number
+    const countryCode = selectedCountry || countriesDropdown[0].countryCode
+    const phoneNumber = formData.get('phone-number')
+    if (phoneNumber) {
+      formData.set('phone-number', `${countryCode} ${phoneNumber}`)
+    }
+
     formData.append('area-of-interest', selectedSubject)
     formData.append('insurance-date', selectedDate)
     formData.append('consent', String(consent))

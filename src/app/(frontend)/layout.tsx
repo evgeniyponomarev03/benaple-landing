@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import { cn } from '@/utilities/ui'
-import { Poppins, Inter } from 'next/font/google'
+import { Poppins, Inter, Manrope } from 'next/font/google'
 import React from 'react'
 import { ViewTransitions } from 'next-view-transitions'
 
@@ -37,6 +37,13 @@ const inter = Inter({
   display: 'swap',
 })
 
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-manrope',
+  display: 'swap',
+})
+
 export default async function RootLayout({
   children,
 }: {
@@ -46,7 +53,7 @@ export default async function RootLayout({
 
   return (
     <html
-      className={cn(poppins.variable, inter.variable)}
+      className={cn(poppins.variable, inter.variable, manrope.variable)}
       data-theme="light"
       lang="en"
       suppressHydrationWarning
@@ -182,10 +189,12 @@ export default async function RootLayout({
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getServerSideURL()),
+  metadataBase: new URL('https://beneple.com'),
+  title: 'Beneple – Corporate Insurance & Employee Benefits for UAE Businesses',
+  description: 'Beneple offers corporate insurance and employee benefits solutions for UAE businesses. Licensed under FAEU Insurance Brokers LLC, Licence #92.',
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@beneple',
   },
 }

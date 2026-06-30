@@ -8,6 +8,7 @@ import { MediumImpactHero } from '@/heros/MediumImpact'
 import { BenepleHomeHero } from '@/heros/BenepleHome'
 import { TailoredHero } from '@/heros/TailoredHero'
 import { BenepleWithFormHero } from '@/heros/BenepleWithForm'
+import { InsuranceHero } from '@/heros/InsuranceHero'
 
 const heroes = {
   highImpact: HighImpactHero,
@@ -16,6 +17,7 @@ const heroes = {
   benepleHome: BenepleHomeHero,
   tailoredHero: TailoredHero,
   benepleWithForm: BenepleWithFormHero,
+  insuranceHero: InsuranceHero,
 }
 
 export const RenderHero: React.FC<Page['hero']> = (

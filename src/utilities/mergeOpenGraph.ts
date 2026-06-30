@@ -4,14 +4,14 @@ import { getServerSideURL } from './getURL'
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
   description:
-    'An open-source website built with Payload and Next.js.',
+    'Beneple offers corporate insurance and employee benefits solutions for UAE businesses. Licensed under FAEU Insurance Brokers LLC, Licence #92.',
   images: [
     {
-      url: `${getServerSideURL()}/website-template-OG.webp`,
+      url: `https://beneple.com/website-template-OG.webp`,
     },
   ],
-  siteName: 'Beneple Website Template',
-  title: 'Beneple Website Template',
+  siteName: 'Beneple',
+  title: 'Beneple – Corporate Insurance & Employee Benefits for UAE Businesses',
 }
 
 export const mergeOpenGraph = (

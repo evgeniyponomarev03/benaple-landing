@@ -43,29 +43,57 @@ const heroSlidesLeft = [
     id: 1,
     type: 'image',
     image: '/hero-media/dubai-city.png',
-    alt: 'Corporate insurance',
+    alt: 'Earned Trust',
   },
   {
     id: 2,
     type: 'card',
     icon: <MarqueeBagIcon />,
-    text: 'Growing Teams',
-    title: '200K+',
-    description: 'Employees ensured',
+    text: 'Earned Trust',
+    title: '4.8/5',
+    description: 'Google Star Rating',
   },
   {
     id: 3,
     type: 'image',
     image: '/hero-media/building.png',
-    alt: 'Business protection',
+    alt: 'Growing Teams',
   },
   {
     id: 4,
     type: 'card',
     icon: <MarqueeHeartIcon />,
-    text: 'UAE Businesses',
+    text: 'Growing Teams',
+    title: '200K+',
+    description: 'Employees insured',
+  },
+  {
+    id: 5,
+    type: 'image',
+    image: '/hero-media/meeting.png',
+    alt: 'Trusted Regionally',
+  },
+  {
+    id: 6,
+    type: 'card',
+    icon: <MarqueeBagIcon />,
+    text: 'Trusted Regionally',
     title: '2,000+',
-    description: 'Trusted by 2,000+ companies',
+    description: 'Companies supported',
+  },
+  {
+    id: 7,
+    type: 'image',
+    image: '/hero-media/building.png',
+    alt: 'Market Leader',
+  },
+  {
+    id: 8,
+    type: 'card',
+    icon: <MarqueeHeartIcon />,
+    text: 'Market Leader',
+    title: '98%',
+    description: 'Client retention rate',
   },
 ]
 const heroSlidesRight = [
@@ -73,49 +101,78 @@ const heroSlidesRight = [
     id: 1,
     type: 'image',
     image: '/hero-media/meeting.png',
-    alt: 'Corporate insurance',
+    alt: 'Local Expertise',
   },
   {
     id: 2,
     type: 'card',
     icon: <MarqueeBagIcon />,
-    text: 'Real Impact',
-    title: '200K+',
-    description: 'Employees ensured',
+    text: 'Local Expertise',
+    title: '15+',
+    description: 'Years in UAE',
   },
   {
     id: 3,
     type: 'image',
     image: '/hero-media/building.png',
-    alt: 'Business protection',
+    alt: 'Wide Network',
   },
   {
     id: 4,
     type: 'card',
     icon: <MarqueeHeartIcon />,
-    text: 'UAE Businesses',
-    title: '2,000+',
-    description: 'Trusted by 2,000+ companies',
+    text: 'Wide Network',
+    title: '50+',
+    description: 'Insurance partners',
+  },
+  {
+    id: 5,
+    type: 'image',
+    image: '/hero-media/dubai-city.png',
+    alt: 'Dedicated Team',
+  },
+  {
+    id: 6,
+    type: 'card',
+    icon: <MarqueeBagIcon />,
+    text: 'Dedicated Team',
+    title: '24/7',
+    description: 'Claims support',
+  },
+  {
+    id: 7,
+    type: 'image',
+    image: '/hero-media/meeting.png',
+    alt: 'Real Impact',
+  },
+  {
+    id: 8,
+    type: 'card',
+    icon: <MarqueeHeartIcon />,
+    text: 'Real Impact',
+    title: 'AED 500M+',
+    description: 'Annual premiums managed',
   },
 ]
 
+
 const brandsLeft = [
-  { id: 1, image: '/brands/allianz.png', alt: 'brand' },
-  { id: 2, image: '/brands/bupa.png', alt: 'brand' },
-  { id: 3, image: '/brands/cigna.png', alt: 'brand' },
-  { id: 4, image: '/brands/dni.png', alt: 'brand' },
-  { id: 5, image: '/brands/gig.png', alt: 'brand' },
-  { id: 6, image: '/brands/hansemerkur.png', alt: 'brand' },
-  { id: 7, image: '/brands/liva.png', alt: 'brand' },
+  { id: 1, image: '/brands/allianz.png', alt: 'Allianz insurance logo' },
+  { id: 2, image: '/brands/bupa.png', alt: 'Bupa global insurance logo' },
+  { id: 3, image: '/brands/cigna.png', alt: 'Cigna healthcare logo' },
+  { id: 4, image: '/brands/dni.png', alt: 'DNI insurance logo' },
+  { id: 5, image: '/brands/gig.png', alt: 'GIG gulf insurance logo' },
+  { id: 6, image: '/brands/hansemerkur.png', alt: 'HanseMerkur logo' },
+  { id: 7, image: '/brands/liva.png', alt: 'Liva insurance logo' },
 ]
 const brandsRight = [
-  { id: 1, image: '/brands/maxhealth.png', alt: 'brand' },
-  { id: 2, image: '/brands/metlife.png', alt: 'brand' },
-  { id: 3, image: '/brands/neuron.png', alt: 'brand' },
-  { id: 4, image: '/brands/nextcare.png', alt: 'brand' },
-  { id: 5, image: '/brands/nlgi.png', alt: 'brand' },
-  { id: 6, image: '/brands/russel.png', alt: 'brand' },
-  { id: 7, image: '/brands/zurich.png', alt: 'brand' },
+  { id: 1, image: '/brands/maxhealth.png', alt: 'Max Health logo' },
+  { id: 2, image: '/brands/metlife.png', alt: 'MetLife insurance logo' },
+  { id: 3, image: '/brands/neuron.png', alt: 'Neuron UAE logo' },
+  { id: 4, image: '/brands/nextcare.png', alt: 'Nextcare logo' },
+  { id: 5, image: '/brands/nlgi.png', alt: 'National Life & General Insurance logo' },
+  { id: 6, image: '/brands/russel.png', alt: 'Russel logo' },
+  { id: 7, image: '/brands/zurich.png', alt: 'Zurich insurance logo' },
 ]
 
 const slidesLeft = [
@@ -253,23 +310,23 @@ const servicesFeat: ServiceFeat[] = [
     id: 1,
     icon: <UmbrellaPeopleIcon />,
     description:
-      'Lorem ipsum dolor sit amet consectetur. Integer tristique nec sit varius bibendum. Vehicula habitant lobortis feugiat sit nunc et eget cras proin. Est ultricies in adipiscing in iaculis. Sed adipiscing.',
+      "High-impact insurance solutions designed to protect your team's future while helping you attract and retain the best talent in the UAE market.",
     feats: [
       {
         id: 1,
         title: 'Medical Insurance',
         description:
-          '– secure your employees’ families in unexpected events.',
+          '– comprehensive health coverage to protect your team\'s physical wellbeing.',
         icon: <MedicalIcon />,
-        link: '#',
+        link: '/medical-insurance',
       },
       {
         id: 2,
         title: "Workmen's Compensation",
         description:
           '– cover workplace injuries and stay UAE labour law compliant.',
-        icon: '',
-        link: '#',
+        icon: <MedicalIcon />,
+        link: '/workmens-compensation',
       },
       {
         id: 3,
@@ -277,7 +334,7 @@ const servicesFeat: ServiceFeat[] = [
         description:
           '– fund end-of-service benefits and avoid surprises.',
         icon: <MedicalIcon />,
-        link: '#',
+        link: '/gratuity-management',
       },
       {
         id: 4,
@@ -287,9 +344,9 @@ const servicesFeat: ServiceFeat[] = [
           </>
         ),
         description:
-          "– secure your employee's families in unexpected events.",
+          "– secure your employees' families in unexpected events.",
         icon: <MedicalIcon />,
-        link: '#',
+        link: '/group-life',
       },
     ],
   },
@@ -297,14 +354,103 @@ const servicesFeat: ServiceFeat[] = [
     id: 2,
     icon: <MedicalIcon />,
     description:
-      'Lorem ipsum dolor sit amet consectetur. Integer tristique nec sit varius bibendum. Vehicula habitant lobortis feugiat sit nunc et eget cras proin. Est ultricies in adipiscing in iaculis. Sed adipiscing.',
+      "Comprehensive protection against professional and legal risks, ensuring your business and its directors stay shielded from the financial impact of unforeseen liabilities.",
     feats: [
       {
+        id: 1,
+        title: 'Professional Indemnity',
+        description:
+          '– protect against claims of negligence or inadequate work.',
+        icon: <MedicalIcon />,
+        link: '/professional-indemnity',
+      },
+      {
         id: 2,
-        title: '',
-        description: '',
-        icon: '',
-        link: '',
+        title: 'Directors & Officers',
+        description:
+          '– shield leadership from personal liability claims.',
+        icon: <MedicalIcon />,
+        link: '/directors-officers',
+      },
+      {
+        id: 3,
+        title: 'Third Party Liability',
+        description:
+          '– cover claims from third parties for injury or damage.',
+        icon: <MedicalIcon />,
+        link: '/third-party-liability',
+      },
+      {
+        id: 4,
+        title: 'Cyber Security',
+        description:
+          '– protect your business from cyber threats and data breaches.',
+        icon: <MedicalIcon />,
+        link: '/cyber-security',
+      },
+    ],
+  },
+  {
+    id: 3,
+    icon: <UmbrellaPeopleIcon />,
+    description:
+      "Bespoke coverage for complex, high-stakes environments providing peace of mind where standard policies fall short, backed by expert risk assessment.",
+    feats: [
+      {
+        id: 1,
+        title: 'Kidnap & Ransom',
+        description:
+          '– protect executives and employees in high-risk environments.',
+        icon: <MedicalIcon />,
+        link: '/kidnap-ransom',
+      },
+      {
+        id: 2,
+        title: 'Defense Base Act Insurance',
+        description:
+          '– mandatory coverage for overseas government contractors.',
+        icon: <MedicalIcon />,
+        link: '/defense-base-act',
+      },
+      {
+        id: 3,
+        title: 'Event Insurance',
+        description:
+          '– cover cancellations, liability, and property damage for events.',
+        icon: <MedicalIcon />,
+        link: '/event-insurance',
+      },
+    ],
+  },
+  {
+    id: 4,
+    icon: <MedicalIcon />,
+    description:
+      "Secure your physical investments and maintain business continuity with robust policies covering commercial assets, equipment, and protection against revenue-halting interruptions.",
+    feats: [
+      {
+        id: 1,
+        title: 'Commercial Property',
+        description:
+          '– protect buildings, equipment, and inventory from damage.',
+        icon: <MedicalIcon />,
+        link: '/commercial-property',
+      },
+      {
+        id: 2,
+        title: 'Motor Fleet',
+        description:
+          '– comprehensive fleet insurance for company vehicles with competitive rates.',
+        icon: <MedicalIcon />,
+        link: '/motor-fleet',
+      },
+      {
+        id: 3,
+        title: 'Luxury Insurance Coverage',
+        description:
+          '– bespoke insurance for high-value assets including fine art, jewellery, yachts, and luxury property.',
+        icon: <MedicalIcon />,
+        link: '/luxury-insurance',
       },
     ],
   },
@@ -320,23 +466,23 @@ const steps = [
   },
   {
     id: 2,
-    title: 'Lorem ipsum',
+    title: 'Compare Top Market Quotes',
     description:
-      'Lorem ipsum dolor sit amet consectetur. Integer tristique nec sit varius bibendum. Vehicula habitant lobortis feugiat sit nunc et eget cras proin. Est ultricies in adipiscing in iaculis. Sed adipiscing.',
+      'We leverage our network of 50+ providers to bring you the most competitive quotes, allowing you to compare benefits and premiums side-by-side with full transparency.',
     image: '/steps-media/office.png',
   },
   {
     id: 3,
-    title: 'Lorem ipsum dolor',
+    title: 'Finalise Your Custom Plan',
     description:
-      'Lorem ipsum dolor sit amet consectetur. Integer tristique nec sit varius bibendum. Vehicula habitant lobortis feugiat sit nunc et eget cras proin. Est ultricies in adipiscing in iaculis. Sed adipiscing.',
+      'Once you\'ve selected the best fit, we handle the heavy lifting. Our team manages the setup, paperwork, and compliance so you can stay focused on your business.',
     image: '/steps-media/office.png',
   },
   {
     id: 4,
-    title: 'Lorem ipsum dolor sit amet',
+    title: 'Ongoing Support & Care',
     description:
-      'Lorem ipsum dolor sit amet consectetur. Integer tristique nec sit varius bibendum. Vehicula habitant lobortis feugiat sit nunc et eget cras proin. Est ultricies in adipiscing in iaculis. Sed adipiscing.',
+      'Our relationship doesn\'t end at sign-up. We provide 24/7 claims support and annual reviews to ensure your coverage grows and stays competitive as your company evolves.',
     image: '/steps-media/office.png',
   },
 ]
@@ -344,18 +490,15 @@ const steps = [
 const caseStudies = [
   {
     id: 1,
-    industry: 'Industry',
+    industry: 'Healthcare',
     logo: '/brands/cigna.png',
     title: (
       <>
-        The Beneple team are{' '}
-        <span>the best I’ve worked with</span> —
-        professional, attentive, and genuinely focused on
-        our needs, not upselling.{' '}
+        Beneple are <span>by far the best</span> I&apos;ve come across. Professional, attentive, knowledgeable and friendly.
       </>
     ),
     description:
-      'The Beneple team are the best I’ve worked with — professional, attentive, and genuinely focused on our needs, not upselling. They are outstanding: fast, communicative, and spot-on with solutions. A great team I fully trust and will keep working with.',
+      'By analysing three years of claim data, Beneple restructured the medical plan to improve wellness benefits while significantly lowering the annual premium for the regional workforce.',
     personName: 'Ross Addison',
     personRole: 'Managing Director at Reverse Psychology',
     imageText: (
@@ -365,71 +508,61 @@ const caseStudies = [
       </>
     ),
     imageIcon: <ReducedIcon />,
-    imageDescriptionOne: 'Dolor',
-    imageDescriptionTwo:
-      'Lorem ipsum dolor sit amet consectetur.',
+    imageDescriptionOne: 'Annual Savings',
+    imageDescriptionTwo: 'Restructured Plan',
     imagePrice: '$183,382',
     imagePercentage: '18%',
     cardImage: '/case-studies-media/Chart.svg',
   },
   {
     id: 2,
-    industry: 'Industry',
+    industry: 'Hospitality',
     logo: '/brands/bupa.png',
     title: (
       <>
-        The Beneple team are{' '}
-        <span>the best I’ve worked with</span> —
-        professional, attentive, and genuinely focused on
-        our needs, not upselling.{' '}
+        I haven&apos;t had a <span>positive experience</span> until Beneple, honestly, the team is so respectful and so prompt.
       </>
     ),
     description:
-      'The Beneple team are the best I’ve worked with — professional, attentive, and genuinely focused on our needs, not upselling. They are outstanding: fast, communicative, and spot-on with solutions. A great team I fully trust and will keep working with.',
-    personName: 'Ross Addison',
-    personRole: 'Managing Director at Reverse Psychology',
+      'Beneple consolidated multiple fragmented international medical policies into a single framework, providing the workforce with consistent global care and simplified claims management.',
+    personName: 'HR Specialist',
+    personRole: 'Hospitality Partner',
     imageText: (
       <>
-        <span>Reduced</span> insurance costs by{' '}
-        <span>18%</span>
+        <span>Expanded</span> medical coverage by{' '}
+        <span>20%</span>
       </>
     ),
     imageIcon: <ReducedIcon />,
-    imageDescriptionOne: 'Dolor',
-    imageDescriptionTwo:
-      'Lorem ipsum dolor sit amet consectetur.',
-    imagePrice: '$183,382',
-    imagePercentage: '18%',
+    imageDescriptionOne: 'Coverage Increase',
+    imageDescriptionTwo: 'Consolidated Policy',
+    imagePrice: '20%',
+    imagePercentage: '20%',
     cardImage: '/case-studies-media/Chart.svg',
   },
   {
     id: 3,
-    industry: 'Industry',
+    industry: 'Corporate Services',
     logo: '/brands/allianz.png',
     title: (
       <>
-        The Beneple team are{' '}
-        <span>the best I’ve worked with</span> —
-        professional, attentive, and genuinely focused on
-        our needs, not upselling.{' '}
+        Beneple are the <span>most professional</span> insurance brokerage firm I have ever dealt with in the UAE.
       </>
     ),
     description:
-      'The Beneple team are the best I’ve worked with — professional, attentive, and genuinely focused on our needs, not upselling. They are outstanding: fast, communicative, and spot-on with solutions. A great team I fully trust and will keep working with.',
-    personName: 'Ross Addison',
-    personRole: 'Managing Director at Reverse Psychology',
+      'To support rapid workforce expansion, Beneple implemented a scalable group medical solution ensuring every new hire was fully protected from day one without increasing per-employee costs.',
+    personName: 'Operations Director',
+    personRole: 'Corporate Services Partner',
     imageText: (
       <>
-        <span>Reduced</span> insurance costs by{' '}
-        <span>18%</span>
+        <span>42% reduction</span> in turnaround times
       </>
     ),
     imageIcon: <ReducedIcon />,
-    imageDescriptionOne: 'Dolor',
-    imageDescriptionTwo:
-      'Lorem ipsum dolor sit amet consectetur.',
-    imagePrice: '$183,382',
-    imagePercentage: '18%',
+    imageDescriptionOne: 'Turnaround Reduction',
+    imageDescriptionTwo: 'Scalable Solution',
+    imagePrice: '42%',
+    imagePercentage: '42%',
     cardImage: '/case-studies-media/Chart.svg',
   },
 ]
@@ -438,55 +571,28 @@ const testimonials = [
   {
     id: 1,
     image: '/testimonials-media/person1.jpg',
-    name: 'Name Surname',
+    name: 'Basma Darwich',
     daysAgo: '3 days ago',
     description:
-      'I’ve worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.',
+      "I've worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.",
     companyLogo: '/testimonials-media/google.png',
   },
   {
     id: 2,
     image: '/testimonials-media/person2.jpg',
-    name: 'Name Surname',
-    daysAgo: '3 days ago',
+    name: 'Ross Addison',
+    daysAgo: '5 days ago',
     description:
-      'I’ve worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.',
+      "The Beneple team are the best I've worked with — professional, attentive, and genuinely focused on our needs, not upselling. They are outstanding: fast, communicative, and spot-on with solutions.",
     companyLogo: '/testimonials-media/google.png',
   },
   {
     id: 3,
     image: '/testimonials-media/person3.jpg',
-    name: 'Name Surname',
-    daysAgo: '3 days ago',
+    name: 'Abdul Gafoor',
+    daysAgo: '1 week ago',
     description:
-      'I’ve worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.',
-    companyLogo: '/testimonials-media/google.png',
-  },
-  {
-    id: 4,
-    image: '/testimonials-media/person3.jpg',
-    name: 'Name Surname',
-    daysAgo: '3 days ago',
-    description:
-      'I’ve worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.',
-    companyLogo: '/testimonials-media/google.png',
-  },
-  {
-    id: 5,
-    image: '/testimonials-media/person3.jpg',
-    name: 'Name Surname',
-    daysAgo: '3 days ago',
-    description:
-      'I’ve worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.',
-    companyLogo: '/testimonials-media/google.png',
-  },
-  {
-    id: 6,
-    image: '/testimonials-media/person1.jpg',
-    name: 'Name Surname',
-    daysAgo: '3 days ago',
-    description:
-      'I’ve worked in HR for over 10 years and never had a positive experience with insurers until Beneple. The team is respectful, prompt, knowledgeable, and refreshingly honest — even in complex situations.',
+      "Beneple is exceptional — supportive, responsive, and always available. Their professionalism and dedication make everything seamless, and it's a pleasure working with such a reliable, proactive team.",
     companyLogo: '/testimonials-media/google.png',
   },
 ]
@@ -495,25 +601,25 @@ const socials = [
   {
     id: 1,
     name: 'instagram',
-    link: '',
+    link: 'https://www.instagram.com/beneplehr/',
     icon: <InstagramIconFooter />,
   },
   {
     id: 2,
     name: 'linkedin',
-    link: '',
+    link: 'https://ae.linkedin.com/company/beneple',
     icon: <LinkedinIconFooter />,
   },
   {
     id: 3,
     name: 'facebook',
-    link: '',
+    link: 'https://www.facebook.com/beneple/',
     icon: <FacebookIconFooter />,
   },
   {
     id: 4,
     name: 'whatsapp',
-    link: '',
+    link: 'https://wa.me/97145674500',
     icon: <WhatsappIconFooter />,
   },
 ]
@@ -526,17 +632,17 @@ const footerNavItems = [
       {
         id: 1,
         title: 'Medical Insurance',
-        link: '',
+        link: '/medical-insurance',
       },
       {
         id: 2,
         title: 'Workmen’s Compensation',
-        link: '',
+        link: '/workmens-compensation',
       },
       {
         id: 3,
         title: 'Gratuity Management',
-        link: '',
+        link: '/gratuity-management',
       },
     ],
   },
@@ -547,22 +653,22 @@ const footerNavItems = [
       {
         id: 1,
         title: 'Professional Indemnity',
-        link: '',
+        link: '/professional-indemnity',
       },
       {
         id: 2,
         title: 'Directors & Officers',
-        link: '',
+        link: '/directors-officers',
       },
       {
         id: 3,
         title: 'Third Party Liability',
-        link: '',
+        link: '/third-party-liability',
       },
       {
         id: 4,
         title: 'Cyber Security',
-        link: '',
+        link: '/cyber-security',
       },
     ],
   },
@@ -573,17 +679,17 @@ const footerNavItems = [
       {
         id: 1,
         title: 'Kidnap & Ransom',
-        link: '',
+        link: '/kidnap-ransom',
       },
       {
         id: 2,
         title: 'Defense Base Act Insurance',
-        link: '',
+        link: '/defense-base-act',
       },
       {
         id: 3,
         title: 'Event Insurance',
-        link: '',
+        link: '/event-insurance',
       },
     ],
   },
@@ -594,17 +700,17 @@ const footerNavItems = [
       {
         id: 1,
         title: 'Commercial Property',
-        link: '',
+        link: '/commercial-property',
       },
       {
         id: 2,
         title: 'Motor Fleet',
-        link: '',
+        link: '/motor-fleet',
       },
       {
         id: 3,
         title: 'Luxury Insurance Coverage',
-        link: '',
+        link: '/luxury-insurance',
       },
     ],
   },
@@ -614,22 +720,22 @@ const legals = [
   {
     id: 1,
     title: 'Privacy Policy',
-    link: '',
+    link: '/privacy-policy',
   },
   {
     id: 2,
     title: 'Terms of use',
-    link: '',
+    link: '/terms-of-use',
   },
   {
     id: 3,
     title: 'Redress and complaints',
-    link: '',
+    link: '/redress-and-complaints',
   },
   {
     id: 4,
     title: 'License Number 92',
-    link: '',
+    link: '/regulatory-compliance',
   },
 ]
 
@@ -826,11 +932,10 @@ export default function Homepage() {
             <HeroTopEllipse />
             <div className="contentLeft">
               <p className="subHeading">
-                Lorem ipsum dolore
+                UAE Insurance Specialists
               </p>
               <h1>
-                Corporate insurance <br />& Employee
-                benefits for <span>UAE Businesses</span>
+                UAE&apos;s Most Trusted <br /><span>Insurance Broker.</span>
               </h1>
               <p className="heroDesc">
                 Protect your people. Empower their
@@ -1022,26 +1127,64 @@ export default function Homepage() {
           </div>
         </section>
         <section className="benefits" ref={cardsRef}>
-          <p className="subHeadingDefault">Our benefits</p>
-          <h2 ref={headingRef}>
-            Local Expertise. <br />
-            <span>International Standards.</span>Real
-            Wellbeing.
-          </h2>
+          <div className="benefitsTop container">
+            <div className="benefitsTopLeft">
+              <img src="/hero-media/meeting.png" alt="Why choose beneple?" className="benefitsTopImg" />
+            </div>
+            <div className="benefitsTopRight">
+              <p className="subHeadingDefault">Why choose beneple?</p>
+              <h2 ref={headingRef} className="headingDefault">
+                Local Expertise. <br />
+                <span>International Standards.</span> <br />
+                Real Wellbeing.
+              </h2>
+              <p className="introText">
+                Beneple was founded to make insurance and employee benefits smarter and more human. Based in Dubai and regulated in the UAE, we partner with top insurers — including Allianz, Bupa, and Cigna — to deliver tailored corporate medical insurance and employee benefits that protect people and support business growth.
+              </p>
+              <p className="introText">
+                We know protection isn’t one-size-fits-all. That’s why we combine global expertise with UAE market insight to design bespoke solutions for your risks — whether you’re a startup or a large enterprise.
+              </p>
+              <div className="bullets">
+                <h4>With Beneple, you get:</h4>
+                <ul>
+                  <li><strong>Transparent advice</strong> – clear comparisons across insurers.</li>
+                  <li><strong>Specialist knowledge</strong> – from SMEs to multinationals.</li>
+                  <li><strong>End-to-end support</strong> – from onboarding to claims management.</li>
+                </ul>
+              </div>
+              <p className="wellbeingText">
+                Beyond insurance, we help build healthier businesses with <strong>complimentary wellbeing programmes</strong> — from health screenings to mental health support — improving productivity and reducing costs.
+              </p>
+              <a href="/why-choose-beneple" className="learnMoreBtn">
+                Learn More
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="currentColor" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
 
-          <div className="cards container">
-            {cards.map((card, i) => {
-              return (
-                <div className="card" key={card.id}>
-                  <div className="icon">{card.icon}</div>
-                  <div className="cardContent">
-                    <h3>{card.heading}</h3>
-                    <p>{card.description}</p>
-                  </div>
-                  <CardBottomEllipse />
-                </div>
-              )
-            })}
+          <div className="benefitsBottom container">
+            <div className="benefitsBottomLeft">
+              <img src="/hero-media/building.png" alt="Feature image" className="benefitsBottomImg" />
+            </div>
+            <div className="benefitsBottomRight">
+              <div className="cards">
+                {cards.map((card, i) => {
+                  return (
+                    <div className="card" key={card.id}>
+                      <div className="icon">{card.icon}</div>
+                      <div className="cardContent">
+                        <h3>{card.heading}</h3>
+                        <p>{card.description}</p>
+                      </div>
+                      <CardBottomEllipse />
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1214,7 +1357,6 @@ export default function Homepage() {
                             </clipPath>
                           </defs>
                         </svg>
-                        <span>scroll down</span>
                       </button>
                     </div>
                     <figure>
@@ -1286,6 +1428,44 @@ export default function Homepage() {
                 </div>
               </div>
             </Swiper>
+          </div>
+        </section>
+        <section className="wellbeingSection container">
+          <div className="wellbeingHeader">
+            <p className="subHeadingDefault">Wellbeing benefits</p>
+            <h2 className="headingDefault">
+              Complimentary Wellbeing <br />
+              <span>with every Corporate Medical Insurance Plan</span>
+            </h2>
+          </div>
+          <div className="wellbeingGrid">
+            <div className="wellbeingCol">
+              <h3>More than just insurance</h3>
+              <p>
+                Most brokers stop at the policy. At Beneple, every corporate medical insurance plan comes with a complimentary wellbeing programme designed to improve employee health, boost morale, and strengthen your ability to attract and retain top talent in the UAE market.
+              </p>
+            </div>
+            <div className="wellbeingCol">
+              <h3>Interested in our wellbeing programmes even if you&apos;re not yet a client?</h3>
+              <p>
+                We&apos;d love to help. Get in touch to find out more.
+              </p>
+            </div>
+            <div className="wellbeingCol">
+              <h3>The business case</h3>
+              <p>
+                Replacing an employee can cost up to 2.5x their annual salary. Our wellbeing programmes improve engagement, reduce absenteeism, and build a workplace culture that people don&apos;t want to leave.
+              </p>
+            </div>
+          </div>
+          <div className="wellbeingCTA">
+            <a href="/contact" className="btn btnPrimary">
+              Get Started Today
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19" stroke="white" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 5L19 12L12 19" stroke="white" strokeWidth="1.71429" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </section>
         <section className="caseStudy">
@@ -1427,7 +1607,7 @@ export default function Homepage() {
                               {study.imagePrice}
                             </span>
                             <span className="statPercentage">
-                              <ArrowDownIcon />{' '}
+                              {study.id === 2 ? '+' : <ArrowDownIcon />}{' '}
                               {study.imagePercentage}
                             </span>
                           </div>
@@ -1435,7 +1615,7 @@ export default function Homepage() {
                         <div className="cardImage">
                           <img
                             src={study.cardImage}
-                            alt="media"
+                            alt={`${study.industry} savings chart`}
                           />
                         </div>
                         <CardBottomEllipse />
@@ -1457,7 +1637,7 @@ export default function Homepage() {
                         i,
                       )
                     }
-                    alt="logo"
+                    alt={`${study.industry} logo`}
                   />
                 ))}
               </div>
@@ -1492,7 +1672,7 @@ export default function Homepage() {
                 </div>
               </div>
               <TestimonialsGoogleEllipse />
-              <a href="">Write a Review</a>
+              <a href="https://www.google.com/search?q=beneple+reviews" target="_blank" rel="noopener noreferrer">Write a Review</a>
             </div>
             <div className="testimonialsSliderWrapper">
               <div className="testimonialsSlider">
@@ -1540,7 +1720,7 @@ export default function Homepage() {
                               )}
                               <img
                                 src={item.companyLogo}
-                                alt="company logo"
+                                alt="Google reviews logo"
                                 className="testimonialLogo"
                               />
                             </div>
@@ -1640,7 +1820,7 @@ export default function Homepage() {
       <footer className="footer container">
         <div className="footerSocials">
           <a href="" className="logo">
-            <img src={'/beneple-logo.svg'} alt="logo" />
+            <img src={'/beneple-logo.svg'} alt="Beneple logo" />
           </a>
           <div className="socials">
             {socials.map((item) => (

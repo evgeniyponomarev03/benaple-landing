@@ -67,6 +67,10 @@ export const hero: Field = {
           label: 'Beneple with Form',
           value: 'benepleWithForm',
         },
+        {
+          label: 'Insurance Hero',
+          value: 'insuranceHero',
+        },
       ],
       required: true,
     },

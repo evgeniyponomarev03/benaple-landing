@@ -115,6 +115,16 @@ const config = {
           'SFMono-Regular',
           'monospace',
         ],
+        'insurance-heading': [
+          'var(--font-manrope)',
+          'system-ui',
+          'sans-serif',
+        ],
+        'insurance-body': [
+          'var(--font-inter)',
+          'system-ui',
+          'sans-serif',
+        ],
       },
       keyframes: {
         'accordion-down': {

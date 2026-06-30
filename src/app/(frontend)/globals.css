@@ -57,6 +57,12 @@
   animation: scroll-right-triple 30s linear infinite;
 }
 
+/* Hide global footer and bottom nav when page has its own custom footer (insurance page) */
+article[data-has-custom-footer] ~ footer,
+article[data-has-custom-footer] ~ nav {
+  display: none !important;
+}
+
 @layer base {
   h1,
   h2,

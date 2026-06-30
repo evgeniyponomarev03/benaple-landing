@@ -72,8 +72,13 @@ export default async function Page({
 
   const { hero, layout } = page
 
+  // Check if page has an insurance footer block (to hide global footer)
+  const hasInsuranceFooter = Array.isArray(layout) && layout.some(
+    (block: any) => block.blockType === 'insuranceFooter'
+  )
+
   return (
-    <article className="pt-16">
+    <article className="pt-16" data-has-custom-footer={hasInsuranceFooter || undefined}>
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
